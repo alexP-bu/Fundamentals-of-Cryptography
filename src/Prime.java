@@ -26,7 +26,6 @@ public class Prime {
     * Pick a randomly in the range [2, p − 2]
     * If a ^ (p-1) === 1 (mod p) then return composite
     */
-
     //CODE NEEDS TESTING
     public PRIME_STATUS fermatPrimalityTest(BigInteger p){
         //lets just set k to p - 2 to check all of them (terrible for large numbers)
@@ -47,7 +46,6 @@ public class Prime {
                 return PRIME_STATUS.COMPOSITE;
             }
         }
-
         //we must return probably prime because of carmichael numbers
         return PRIME_STATUS.PROBABLY_PRIME;
     }
@@ -65,5 +63,9 @@ public class Prime {
 
     public PRIME_STATUS millerRabin(BigInteger w, int iterations){        
         return PRIME_STATUS.COMPOSITE;
+    }
+
+    public static BigInteger getPrime() {
+        return null;
     }
 }
