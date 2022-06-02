@@ -1,12 +1,10 @@
 import java.math.BigInteger;
-
 /* 
- * The Blum–Micali algorithm is a cryptographically secure pseudorandom number generator. The algorithm gets its security from the difficulty of computing discrete logarithms.
+ * The Blum–Micali algorithm is a cryptographically secure pseudorandom number generator. 
+ * The algorithm gets its security from the difficulty of computing discrete logarithms.
  * Let p be an odd prime, x0 be a seed
  * then x.i+1 = g^x mod p
 */
-
-//blum-micali construction implemntation
 
 public class PRG {
 
