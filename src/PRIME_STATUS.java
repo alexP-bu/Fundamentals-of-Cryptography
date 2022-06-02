@@ -1,0 +1,6 @@
+
+public enum PRIME_STATUS {
+   PROBABLY_PRIME,
+   COMPOSITE,
+   PRIME 
+}
