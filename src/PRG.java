@@ -17,6 +17,7 @@ public class PRG {
         super();
         this.type = type;
         this.p = Prime.getPrime();
+        this.g = Prime.getPrimitiveRoot(p);
     }
 
     //return next value of PRG

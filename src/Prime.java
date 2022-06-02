@@ -68,4 +68,8 @@ public class Prime {
     public static BigInteger getPrime() {
         return null;
     }
+
+    public static BigInteger getPrimitiveRoot(BigInteger p) {
+        return null;
+    }
 }
