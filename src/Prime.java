@@ -45,6 +45,7 @@ public class Prime {
             if(a.modPow(p.subtract(BigInteger.ONE), p) != BigInteger.ONE){
                 return PRIME_STATUS.COMPOSITE;
             }
+            a = a.add(BigInteger.ONE);
         }
         //we must return probably prime because of carmichael numbers
         return PRIME_STATUS.PROBABLY_PRIME;
@@ -61,8 +62,38 @@ public class Prime {
 
     //Miller-Rabin Primality Test Algorithm Implemenation
 
-    public PRIME_STATUS millerRabin(BigInteger w, int iterations){        
+    //THIS CODE NEEDS TESTING
+    public PRIME_STATUS millerRabinTest(BigInteger w, int iterations){        
+        //1. Let a be the largest integer such that 2^a divides w–1.
+        BigInteger a = BigInteger.ZERO;
+        BigInteger temp = w.subtract(BigInteger.ONE);
+        while(temp.mod(BigInteger.TWO).equals(BigInteger.ZERO)){
+            a = a.add(BigInteger.ONE);
+            temp = temp.divide(BigInteger.TWO);
+        }
+        //m = (w–1) / 2^a.
+        BigInteger m = w.subtract(BigInteger.ONE).divide(this.pow(BigInteger.TWO, a));
+        //3. wlen = len (w).
+        int wlen = w.bitLength();
+        //4.0
+        for(int i = 1; i < iterations; i++){
+            //4.1 Obtain a string b of wlen bits from an RBG.
+            
+        }
+
+        
         return PRIME_STATUS.COMPOSITE;
+    }
+
+    //code to exponentiate two bigintegers, not recommended for large numbers
+    private BigInteger pow(BigInteger base, BigInteger exponent) {
+        BigInteger result = BigInteger.ONE;
+        while(exponent.signum() > 0){
+            if (exponent.testBit(0)) result = result.multiply(base);
+            base = base.multiply(base);
+            exponent = exponent.shiftRight(1);
+        }
+        return result;
     }
 
     public static BigInteger getPrime() {
