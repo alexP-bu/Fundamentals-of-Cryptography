@@ -1,13 +1,12 @@
 import java.security.Key;
-import java.util.LinkedList;
-import java.util.List;
-
 public class SemanticSecurityGame {
     //For a given cipher Ec = (E, D) defined over (K, M, C)
     //We can define adversary a and challenger c 
     //in two (or one, for bit guessing) experiments
+    public Challenger game0 = new Challenger("test".getBytes(), true);
+    public Challenger game1 = new Challenger("hello".getBytes(), false);
     
-    public static byte[] E(Key k, byte[] message){
+    public static byte[] E(byte[] key, byte[] message){
         //USE AN ENCRYPTION METHOD HERE
         //DO NOT JUST RETURN THE MESSAGE AS DEFAULTED
         byte[] ciphertext = message;
@@ -60,18 +59,18 @@ public class SemanticSecurityGame {
             c.recieveMessages(computeM0(), computeM1(), this); 
         }
 
-        public int[] getResult(){
-            return new int[]{numResultsTrue, numResultsFalse};
+        public double getSSAdv(){
+            return ((double) numResultsTrue) / numResultsFalse;
         }
     }
 
 
     //challenger for SS security game
     public class Challenger {
-        private Key k;
+        private byte[] k;
         private boolean b = false;
 
-        public Challenger(Key k, boolean b){
+        public Challenger(byte[] k, boolean b){
             this.b = b;
         }
 
