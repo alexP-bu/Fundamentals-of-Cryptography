@@ -62,7 +62,7 @@ public class Prime {
 
     //Miller-Rabin Primality Test Algorithm Implemenation
 
-    //THIS CODE NEEDS TESTING
+    //THIS CODE NEEDS TESTING; wip
     public PRIME_STATUS millerRabinTest(BigInteger w, int iterations){        
         //1. Let a be the largest integer such that 2^a divides w–1.
         BigInteger a = BigInteger.ZERO;
@@ -85,7 +85,7 @@ public class Prime {
         return PRIME_STATUS.COMPOSITE;
     }
 
-    //code to exponentiate two bigintegers, not recommended for large numbers
+    //code to exponentiate two bigintegers, PRETTY BAD for large numbers
     private BigInteger pow(BigInteger base, BigInteger exponent) {
         BigInteger result = BigInteger.ONE;
         while(exponent.signum() > 0){
