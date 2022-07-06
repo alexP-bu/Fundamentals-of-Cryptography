@@ -4,8 +4,9 @@ public class SemanticSecurityGame {
     //For a given cipher Ec = (E, D) defined over (K, M, C)
     //We can define adversary a and challenger c 
     //in two (or one, for bit guessing) experiments
-    public Challenger game0 = new Challenger("test".getBytes(), true);
-    public Challenger game1 = new Challenger("hello".getBytes(), false);
+    
+    //public Challenger game0 = new Challenger("test".getBytes(), true);
+    //public Challenger game1 = new Challenger("hello".getBytes(), false);
     
     public static Byte[] E(Byte[] key, Byte[] message){
         //USE AN ENCRYPTION METHOD HERE
@@ -66,8 +67,9 @@ public class SemanticSecurityGame {
             c.recieveMessages(m0, m1, this);
 
             //IMPLEMENT ADVERSARY FUNCTION HERE
+            //default returns true if the first bit is a one
             this.computeBHat( ciphertext -> {
-                return true;
+             return (ciphertext.toString().charAt(0) == '1') ?  true : false;
             });
         }
 
